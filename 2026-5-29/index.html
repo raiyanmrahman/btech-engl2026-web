@@ -6,8 +6,29 @@
     <link rel="stylesheet" href="../w3.css">
     <title>Final Group Project</title>
 </head>
-<body>
-    <h1>2026-5-29</h1>
-    <a href="../index.html">Homepage</a>
+<script src="../web-scripts.js"></script>
+<body class="w3-auto">
+    <div class="w3-container w3-green">
+        <h1>2026-5-29</h1>
+    </div>
+    
+    <div class="w3-container">
+        <p><a href="../">Homepage</a></p>
+    </div>
+    
+    <button onclick="useAccordion('sect1')" class="w3-button w3-block w3-black w3-left-align">Open Section 1</button>
+    <div id="sect1" class="w3-container w3-hide">
+        <p>Some text..</p>
+    </div>
+
+    <button onclick="useAccordion('sect2')" class="w3-button w3-block w3-black w3-left-align">Open Section 2</button>
+    <div id="sect2" class="w3-container w3-hide">
+        <p>Some text..</p>
+    </div>
+
+    <button onclick="useAccordion('sect3')" class="w3-button w3-block w3-black w3-left-align">Open Section 3</button>
+    <div id="sect3" class="w3-container w3-hide">
+        <p>Some text..</p>
+    </div>
 </body>
 </html>
