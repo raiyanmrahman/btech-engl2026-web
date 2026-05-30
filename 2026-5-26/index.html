@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology & Education Inequality</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #edf0f3;
+      color: #1f2937;
+    }
+
+    .top {
+      background: #20324a;
+      color: white;
+      padding: 28px 22px;
+    }
+
+    .top-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f4c95d;
+      color: #20324a;
+      padding: 7px 11px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: -1px;
+    }
+
+    .top p {
+      font-size: 18px;
+      color: #dbe5ef;
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 16px;
+      background: #f4c95d;
+      color: #20324a;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn.alt {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+
+    .hero-box {
+      background: #ffffff;
+      color: #20324a;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .hero-box h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    .score-card {
+      border: 1px solid #d7dde5;
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 12px;
+      background: #f7f9fb;
+    }
+
+    .score-card strong {
+      display: block;
+      font-size: 30px;
+      color: #3c6e71;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #d9e0e7;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 12px 22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #20324a;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      background: #f1f4f7;
+      padding: 8px 12px;
+      border-radius: 20px;
+    }
+
+    nav a:hover { background: #f4c95d; }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 28px 22px 50px;
+    }
+
+    section {
+      margin-bottom: 28px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 31px;
+      color: #20324a;
+    }
+
+    .small {
+      color: #64748b;
+      font-size: 15px;
+      margin: 6px 0 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #d9e0e7;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 20px rgba(31,41,55,0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      color: #20324a;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #526173;
+      line-height: 1.55;
+      margin: 0;
+      font-size: 16px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid #d9e0e7;
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 12px 0;
+      box-shadow: 0 8px 20px rgba(31,41,55,0.05);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #20324a;
+      font-size: 18px;
+    }
+
+    details p {
+      color: #526173;
+      line-height: 1.6;
+      margin: 12px 0 0;
+    }
+
+    .tab-box {
+      background: white;
+      border: 1px solid #d9e0e7;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(31,41,55,0.06);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid #d9e0e7;
+    }
+
+    .tabs label {
+      text-align: center;
+      padding: 14px 10px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #f7f9fb;
+      color: #20324a;
+      border-right: 1px solid #d9e0e7;
+    }
+
+    .tabs label:last-child { border-right: none; }
+
+    input[type="radio"] { display: none; }
+
+    .tab-content {
+      display: none;
+      padding: 22px;
+      line-height: 1.7;
+      color: #526173;
+      min-height: 150px;
+    }
+
+    #tab1:checked ~ .tabs label[for="tab1"],
+    #tab2:checked ~ .tabs label[for="tab2"],
+    #tab3:checked ~ .tabs label[for="tab3"] {
+      background: #f4c95d;
+      color: #20324a;
+    }
+
+    #tab1:checked ~ .content1,
+    #tab2:checked ~ .content2,
+    #tab3:checked ~ .content3 {
+      display: block;
+    }
+
+    .scenario {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .student {
+      background: white;
+      border: 1px solid #d9e0e7;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 20px rgba(31,41,55,0.06);
+    }
+
+    .student h3 {
+      margin: 0 0 12px;
+      color: #20324a;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 9px;
+      background: #e7f0f1;
+      color: #3c6e71;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 4px 4px 8px 0;
+    }
+
+    .tag.orange {
+      background: #fff0d2;
+      color: #9a6218;
+    }
+
+    .bar-wrap {
+      margin-top: 16px;
+    }
+
+    .bar-line {
+      margin: 14px 0;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: bold;
+      color: #20324a;
+      margin-bottom: 6px;
+    }
+
+    .bar-bg {
+      height: 16px;
+      background: #e2e8f0;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      background: #3c6e71;
+      border-radius: 20px;
+    }
+
+    .bar.orange { background: #c77d31; }
+
+    .checklist {
+      background: #20324a;
+      color: white;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .checklist h3 {
+      margin: 0 0 10px;
+      font-size: 25px;
+    }
+
+    .check-item {
+      display: block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 12px;
+      border-radius: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    .check-item input {
+      margin-right: 8px;
+      accent-color: #f4c95d;
+    }
+
+    .mini-quiz {
+      background: white;
+      border: 1px solid #d9e0e7;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(31,41,55,0.06);
+    }
+
+    .answer {
+      margin-top: 12px;
+      padding: 14px;
+      background: #f7f9fb;
+      border-left: 5px solid #f4c95d;
+      display: none;
+      color: #526173;
+    }
+
+    .mini-quiz button {
+      border: 0;
+      background: #20324a;
+      color: white;
+      font-weight: bold;
+      padding: 11px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .mini-quiz button:hover { background: #3c6e71; }
+
+    .final {
+      background: #fff;
+      border: 1px solid #d9e0e7;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(31,41,55,0.06);
+    }
+
+    .final h3 {
+      color: #20324a;
+      margin-top: 0;
+    }
+
+    .final p {
+      color: #526173;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #20324a;
+      color: #dbe5ef;
+      padding: 24px 22px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .top-inner, .grid, .scenario {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { font-size: 36px; }
+
+      .tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .tabs label {
+        border-right: 0;
+        border-bottom: 1px solid #d9e0e7;
+      }
+
+      .section-head {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div class="top-inner">
+      <div>
+        <span class="badge"><a href="../">Back to Homepage</a></span>
+        <h1>Does Technology Actually Make Education Equal?</h1>
+        <p>
+          Technology can help students learn, but only when everyone has the tools to use it.
+          Click through the page to see both sides.
+        </p>
+        <div class="button-row">
+          <a class="btn" href="#explore">Start Exploring</a>
+          <a class="btn alt" href="#solution">Jump to Solutions</a>
+        </div>
+      </div>
+
+      <div class="hero-box">
+        <h2>Quick Claim</h2>
+        <p>Technology is helpful, but it does not automatically fix inequality.</p>
+        <div class="score-card">
+          <span>Best solution:</span>
+          <strong>Access + Support</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#explore">Explore</a>
+      <a href="#scenarios">Compare Students</a>
+      <a href="#data">Data</a>
+      <a href="#solution">Solutions</a>
+      <a href="#quiz">Quick Check</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="explore">
+      <div class="section-head">
+        <div>
+          <h2>Click to Explore the Main Idea</h2>
+          <p class="small">Instead of reading one long essay, open each part.</p>
+        </div>
+      </div>
+
+      <details open>
+        <summary>What is the digital divide?</summary>
+        <p>
+          The digital divide is the gap between students who have strong technology access and students who do not.
+          It includes internet, devices, quiet space, school resources, and digital skills.
+        </p>
+      </details>
+
+      <details>
+        <summary>How can technology help?</summary>
+        <p>
+          Technology can give students videos, practice websites, online textbooks, translation tools, and AI explanations.
+          It can also help students study at their own pace.
+        </p>
+      </details>
+
+      <details>
+        <summary>Why does inequality still happen?</summary>
+        <p>
+          A student cannot fully benefit from technology if they do not have reliable Wi-Fi, their own device, or support
+          from teachers and family. This is why technology alone is not enough.
+        </p>
+      </details>
+    </section>
+
+    <section>
+      <h2>Choose a Side</h2>
+      <p class="small">Click each tab to see the argument.</p>
+
+      <div class="tab-box">
+        <input type="radio" name="tabs" id="tab1" checked>
+        <input type="radio" name="tabs" id="tab2">
+        <input type="radio" name="tabs" id="tab3">
+
+        <div class="tabs">
+          <label for="tab1">Technology Helps</label>
+          <label for="tab2">Technology Hurts</label>
+          <label for="tab3">Best Answer</label>
+        </div>
+
+        <div class="tab-content content1">
+          Technology helps because students can learn from videos, websites, apps, and AI tools.
+          It can give students more practice and more ways to understand hard topics.
+        </div>
+
+        <div class="tab-content content2">
+          Technology can hurt when students do not have equal access. If one student has fast internet
+          and another student shares one phone, the gap can get bigger.
+        </div>
+
+        <div class="tab-content content3">
+          The best answer is balance. Technology can reduce inequality only when schools also provide
+          devices, internet, digital skills, and teacher support.
+        </div>
+      </div>
+    </section>
+
+    <section id="scenarios">
+      <h2>Compare Two Students</h2>
+      <p class="small">Same assignment, different access.</p>
+
+      <div class="scenario">
+        <div class="student">
+          <h3>Student A</h3>
+          <span class="tag">Laptop</span>
+          <span class="tag">Fast Wi-Fi</span>
+          <span class="tag">Quiet room</span>
+          <span class="tag">Parent support</span>
+          <p>This student can finish online homework, research easily, and review lessons whenever they need to.</p>
+        </div>
+
+        <div class="student">
+          <h3>Student B</h3>
+          <span class="tag orange">Shared phone</span>
+          <span class="tag orange">Weak internet</span>
+          <span class="tag orange">No quiet space</span>
+          <span class="tag orange">Less support</span>
+          <p>This student may work just as hard, but technology becomes harder to use because access is limited.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="data">
+      <h2>Simple Data View</h2>
+      <p class="small">This visual shows why access matters.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Internet</h3>
+          <p>Reliable Wi-Fi makes online learning easier and more consistent.</p>
+          <div class="bar-wrap">
+            <div class="bar-line">
+              <div class="bar-label"><span>Strong access</span><span>90%</span></div>
+              <div class="bar-bg"><div class="bar" style="width:90%;"></div></div>
+            </div>
+            <div class="bar-line">
+              <div class="bar-label"><span>Limited access</span><span>50%</span></div>
+              <div class="bar-bg"><div class="bar orange" style="width:50%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Devices</h3>
+          <p>Having your own device makes it easier to complete assignments on time.</p>
+          <div class="bar-wrap">
+            <div class="bar-line">
+              <div class="bar-label"><span>Own device</span><span>85%</span></div>
+              <div class="bar-bg"><div class="bar" style="width:85%;"></div></div>
+            </div>
+            <div class="bar-line">
+              <div class="bar-label"><span>Shared device</span><span>45%</span></div>
+              <div class="bar-bg"><div class="bar orange" style="width:45%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Skills</h3>
+          <p>Students need to know how to research, check sources, and use AI honestly.</p>
+          <div class="bar-wrap">
+            <div class="bar-line">
+              <div class="bar-label"><span>With support</span><span>80%</span></div>
+              <div class="bar-bg"><div class="bar" style="width:80%;"></div></div>
+            </div>
+            <div class="bar-line">
+              <div class="bar-label"><span>No training</span><span>40%</span></div>
+              <div class="bar-bg"><div class="bar orange" style="width:40%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution">
+      <h2>What Would Actually Help?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Devices</h3>
+          <p>Schools should help students get laptops or tablets, not just expect every family to already have them.</p>
+        </div>
+        <div class="card">
+          <h3>2. Internet</h3>
+          <p>Students need reliable internet at home or safe places where they can connect after school.</p>
+        </div>
+        <div class="card">
+          <h3>3. Training</h3>
+          <p>Students should learn how to use technology for learning, not just entertainment or copying.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="checklist">
+        <h3>Fair Tech Checklist</h3>
+        <p>Check the boxes that a school should provide before saying technology is “equal.”</p>
+        <label class="check-item"><input type="checkbox"> Every student can access a working device.</label>
+        <label class="check-item"><input type="checkbox"> Every student has reliable internet access.</label>
+        <label class="check-item"><input type="checkbox"> Teachers are trained to use the technology well.</label>
+        <label class="check-item"><input type="checkbox"> Students learn how to use AI and online sources responsibly.</label>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>Quick Check</h2>
+      <div class="mini-quiz">
+        <h3>Question: Does technology automatically solve inequality in education?</h3>
+        <p>Think about the answer, then click below.</p>
+        <button onclick="document.getElementById('answer').style.display='block'">Show Answer</button>
+        <div class="answer" id="answer">
+          No. Technology can help, but it only reduces inequality when students have fair access to devices,
+          internet, digital skills, and support.
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <h2>Final Conclusion</h2>
+      <div class="final">
+        <h3>Main Takeaway</h3>
+        <p>
+          Technology is useful in education, but it is not a magic solution. It can make learning easier,
+          but only if all students have the same chance to use it. The real goal should be fair access,
+          not just more technology.
+        </p>
+
+        <h3>Sources to Add</h3>
+        <p>
+          Pew Research Center, National Center for Education Statistics, U.S. Department of Education,
+          Federal Communications Commission, and UNESCO.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Website project by Talha Nadeem • Topic: Technology and Inequality in Education
+  </footer>
+</body>
+</html>
