@@ -3,38 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="w3.css">
-    <link rel="icon" href="favicon.ico">
-    <title>Homepage</title>
+    <link rel="stylesheet" href="../assets/w3.css">
+    <link rel="icon" href="../assets/favicon.ico">
+    <title>Final Group Project</title>
+    <style>
+        .w3x-hero {
+            object-fit: cover;
+            width: 100%;
+            height: 350px;
+        }
+        .w3x-bar {
+            position: sticky;
+            top: 0;
+        }
+        .w3x-edtimg {
+            object-fit: contain;
+            height: 200px;
+        }
+        @media (max-width: 50rem) {
+            .w3x-bar {
+                position: static;
+            }
+        }
+    </style>
 </head>
-<body class="w3-auto">
-    <div class="w3-container w3-black">
-        <h1 class="w3-monospace">Versions</h1>
-    </div>
+<script src="../assets/web-scripts.js"></script>
+<body>
+    <header class="w3-display-container">
+        <img class="w3x-hero" src="../assets/gauss-pexels-ron-lach-10638069.jpg">
+        <div class="w3-display-middle w3-text-white w3-center">
+            <h1><strong><i>Does technology solve inequality in education?</i></strong></h1>
+        </div>
+    </header>
 
-    <div class="w3-responsive">
-        <table class="w3-table w3-striped w3-monospace">
-            <tr>
-                <td><a href="2026-6-3/">2026-6-3</a></td>
-            </tr>
-            <tr>
-                <td><a href="2026-6-2/">2026-6-2</a></td>
-            </tr>
-            <tr>
-                <td><a href="2026-5-30/">2026-5-30</a></td>
-            </tr>
-            <tr>
-                <td><a href="2026-5-29/">2026-5-29</a></td>
-            </tr>
-            <tr>
-                <td><a href="2026-5-26/">2026-5-26</a></td>
-            </tr>
-        </table>
-    </div>
+    <nav class="w3-auto w3-black w3-bar w3x-bar">
+        <a href="#start" class="w3-bar-item w3-button w3-mobile">Start</a>
+        <a href="#explore" class="w3-bar-item w3-button w3-mobile">Explore</a>
+        <a href="#counter" class="w3-bar-item w3-button w3-mobile">Counter</a>
+        <a href="#reflect" class="w3-bar-item w3-button w3-mobile">Reflection</a>
+        <a href="#takeaway" class="w3-bar-item w3-button w3-mobile">Takeaway</a>
+        <a href="#sources" class="w3-bar-item w3-button w3-mobile">Sources</a>
+    </nav>
 
-    <footer class="w3-auto w3-bottom w3-black w3-monospace w3-center">
+    <main class="w3-auto">
+        <section id="start" class="w3-container">
+            <p>With educational inequality influencing all other kinds of inequality in our world, it has become a pressing issue in the last 20 years. The same few factors have been key causes of this inequality since the industrial revolution: wealth gaps between students, racial discrimination, geographical bias, etc. </p>
+            <p>However, in those 20 years, technology has risen to be a new factor significantly affecting classrooms. Subsequently, optimism about technology being an equalizer between advantaged and disadvantaged students has also increased. This website aims to find an answer as to how justified these hopes are.</p>
+        </section>
+        
+        <section id="explore">
+            <div class="w3-container w3-orange">
+                <h2>Explore</h2>
+            </div>
+            <button onclick="useAccordion('ac1')" class="w3-button w3-block w3-pale-orange w3-left-align">EdTrust-West</button>
+            <div id="ac1" class="w3-container w3-hide">
+                <div class="w3-row-padding w3-margin-top">
+                    <div class="w3-half">
+                        <div class="w3-card w3-margin-bottom w3-hover-shadow">
+                            <img class="w3-panel" style="object-fit:contain;width:100%;height:200px" src="../assets/edtrust-dp1.png">
+                            <div class="w3-container w3-center">
+                                <p>On average, 17 out of 100 children were unable to complete their homework due to limited internet access.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w3-half">
+                        <div class="w3-card w3-margin-bottom w3-hover-shadow">
+                            <img class="w3-panel w3-image" style="object-fit:contain;width:100%;height:200px" src="../assets/edtrust-dp2.png">
+                            <div class="w3-container w3-center">
+                                <p>In California, about 1 in 6 school-aged children lack access to the internet at home.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Technology itself has created inequality in among students in a phenomenon known as the digital divide.</p>
+                </div>
+            </div>
+
+            <button onclick="useAccordion('ac2')" class="w3-button w3-block w3-pale-orange w3-left-align">UNESCO</button>
+            <div id="ac2" class="w3-container w3-hide">
+                <p>Evidence: Today, 2.6 billion people - 32% of the global population - still lack internet access, with 1.8 billion of them living in rural areas. In education, 60% of primary schools, half of lower secondary and a third of upper secondary schools globally are not currently connected to the internet.</p>
+                <p>In Namibia, teachers at a newly established primary school are using a single computer and a projector to enhance lessons. “Now I can create digital content, developing PowerPoints, downloading pictures or short videos that are clearer than in the textbooks, and integrate them into my lessons”, said Ms Ester Namupa, a teacher from rural Namibia.</p>
+                <p>In Kenya, SMS-based learning programmes are helping students in areas with limited internet access. And in Malawi, efforts are underway to consolidate teaching and learning resources developed by donor-funded programmes into a single government-hosted platform, ensuring better access for students and teachers.</p>
+            </div>
+
+            <button onclick="useAccordion('ac3')" class="w3-button w3-block w3-pale-orange w3-left-align">National Library of Medicine/Khan Academy</button>
+            <div id="ac3" class="w3-container w3-hide">
+                <p>Evidence: Khan Academy is popular. Khan Academy is visited by 20 million individuals per month, has more than 120 million registered users, is used in more than 190 countries, and has partnered with more than 200 school districts across the United States</p>
+                <p>During baseline, Aaron scored 0% correct across three sessions. During the first session of Khan Academy, Aaron completed one problem set. On the problem set, he scored 50% correct (2 out of 4 correct), watched 0% of video hints, and accessed 0 textual hints per question. During the second session, Aaron completed two problem sets. On the problem sets, Aaron scored 81.8% correct (9 out of 11 correct)</p>
+            </div>
+        </section>
+
+        <section id="counter" class="w3-margin-top w3-margin-bottom">
+            <div class="w3-container w3-red">
+                <h2>Counter-argument</h2>
+            </div>
+            <div class="w3-container w3-pale-red">
+                <p>Evidence: Many factors influence the level of a program's effectiveness, such as the extent to which teachers are trained and prepared to implement the program, the level of student access to the technology, and the provision of adequate technical support. In other words, school districts should build a comprehensive program, not just supply students and staff with machinery </p>
+            </div>
+        </section>
+
+        <section id="reflect" class="w3-panel w3-cobalt">
+            <h2>Personal Reflection</h2>
+            <p>As students of BTECH and the NYC public education system as a whole, we have been fortunate enough to have continued access to adequate technology and relevant instruction on how to use that technology to complete assignments, do research, and even write the code used to create this website.</p>
+        </section>
+
+        <section id="takeaway" class="w3-panel w3-emerald w3-center">
+            <h2><strong>Takeaway</strong></h2>
+            <p>Yes, technology does solve the education inequality, but it's limited to those who can access it and those with an appropriate environment and circumstances.</p>
+        </section>
+
+        <section id="sources" class="w3-panel w3-border w3-serif w3-large">
+            <h2 class="w3-serif">Sources</h2>
+            <p><a href="https://west.edtrust.org/resource/education-equity-in-crisis-the-digital-divide/">https://west.edtrust.org/resource/education-equity-in-crisis-the-digital-divide/</a></p>
+            <p><a href="https://www.unesco.org/en/articles/unesco-spotlights-how-digital-learning-can-promote-equity-low-resource-contexts">https://www.unesco.org/en/articles/unesco-spotlights-how-digital-learning-can-promote-equity-low-resource-contexts</a></p>
+            <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12779882/">https://pmc.ncbi.nlm.nih.gov/articles/PMC12779882/</a></p>
+            <p><a href="https://files.eric.ed.gov/fulltext/ED536868.pdf">https://files.eric.ed.gov/fulltext/ED536868.pdf</a></p>
+
+        </section>
+    </main>
+
+    <footer class="w3-auto w3-container w3-black w3-small w3-monospace w3-center">
         <p>Made by Raiyan Mohammad Rahman and Talha Nadeem.</p>
-        <p><a href="https://github.com/raiyanmrahman/btech-engl2026-web">Back to GitHub Repository</p>
+        <p><a href="https://github.com/raiyanmrahman/btech-engl2026-web">Back to GitHub Repository</a></p>
     </footer>
 </body>
 </html>
