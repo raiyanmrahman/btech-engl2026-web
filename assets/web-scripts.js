@@ -11,10 +11,9 @@ function useAccordion(id) {
         x.className = x.className.replace(" w3-show", "");
     }
 }
-
 function openTab(id) {
   var i;
-  var x = document.getElementsByClassName("city");
+  var x = document.getElementsByClassName("maptab");
   for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";
   }
